@@ -1,0 +1,66 @@
+{
+    "elements": [
+		{ 
+            "type": "RowLayout",
+            "items": [
+		        {
+		            "type": "SelectVariable",
+		            "name": "InputVariable",
+		            "caption": "Input Variable",
+		            "width": "400px"
+		        },
+		        {
+		            "type": "Select",
+		            "name": "InputValue",
+		            "caption": "Input Value",
+		            "width": "150px",
+		            "options": [
+		                {
+		                    "caption": "true",
+		                    "value": 0
+		                },
+		                {
+		                    "caption": "false",
+		                    "value": 1
+		                },
+		                {
+		                    "caption": "true and false",
+		                    "value": 2
+		                }
+		            ]
+		        },
+		        {
+		            "type": "SelectVariable",
+		            "name": "OutputVariable",
+		            "caption": "Output Variable",
+		            "width": "400px"
+		        },
+		        {
+		            "type": "Select",
+		            "name": "OutputValue",
+		            "caption": "Output Value",
+		            "width": "150px",
+		            "options": [
+		                {
+		                    "caption": "true",
+		                    "value": 0
+		                },
+		                {
+		                    "caption": "false",
+		                    "value": 1
+		                },
+		                {
+		                    "caption": "Call Scene",
+		                    "value": 2
+		                }
+		            ]
+		        }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "TestCenter"
+        }
+    ]
+}

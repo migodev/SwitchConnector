@@ -1,0 +1,14 @@
+{
+    "id": "{1DB35AF8-BE3D-23E1-1483-E20169BFB1A2}",
+    "name": "Switch Connector",
+    "type": 3,
+    "vendor": "",
+    "aliases": [
+        "Switch Connector"
+    ],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "MSC",
+    "url": "https://github.com/migodev/SwitchConnector"
+}

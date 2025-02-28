@@ -1,0 +1,13 @@
+{
+    "translations": {
+        "de": {
+            "Switch Connector": "Switch Connector",
+            "Input Variable": "Eingansvariable",
+            "Input Value": "Eingangswert",
+            "Output Variable": "Ausgangsvariable",
+            "Output Value": "Ausgangswert",
+            "true and false": "true & false",
+            "Call Scene": "Szene aufrufen"
+        }
+    }
+}
