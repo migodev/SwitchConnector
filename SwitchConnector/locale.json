@@ -7,7 +7,8 @@
             "Output Variable": "Ausgangsvariable",
             "Output Value": "Ausgangswert",
             "true and false": "true & false",
-            "Call Scene": "Szene aufrufen"
+            "Call Scene": "Szene aufrufen",
+            "Toggle Value": "Wert umschalten"
         }
     }
 }

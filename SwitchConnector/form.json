@@ -52,6 +52,10 @@
 		                {
 		                    "caption": "Call Scene",
 		                    "value": 2
+		                },
+		                {
+		                    "caption": "Toggle Value",
+		                    "value": 3
 		                }
 		            ]
 		        }

@@ -68,7 +68,6 @@ class SwitchConnector extends IPSModule {
             $form['elements'][$formId]['items'][2]['name'] = "OutputVariable_".$i;
             $form['elements'][$formId]['items'][3]['name'] = "OutputValue_".$i;
         }
-        //$this->SendDebug('elements', json_encode($form), 0);
         return json_encode($form);
     }
     
@@ -81,7 +80,6 @@ class SwitchConnector extends IPSModule {
         for ($i = 1; $i <= $connectorCount; $i++) {
             if ($this->ReadPropertyInteger("InputVariable_".$i) == $SenderID) {
                 $inputId = $i;
-                //$this->LogMessage("$i ist mein gedrückter Button", KL_WARNING);
                 break;
             }
         }
@@ -110,6 +108,9 @@ class SwitchConnector extends IPSModule {
     
 
     private function SetResult($id, $outputValue) {
+        $currentValue = GetValue($id);
+        $variable = IPS_GetVariable($id);
+        
         switch ($outputValue) {
             case 0: // true
                 $value = true;
@@ -120,9 +121,29 @@ class SwitchConnector extends IPSModule {
             case 2: // callScene
                 $value = 2;
                 break;
+            case 3: // toggle Value
+                switch ($variable['VariableType']) {
+                    case 0: // boolean
+                        $value = ($currentValue === true) ? false : true;
+                        break;
+                    case 1: // int
+                        $value = ($currentValue === 0) ? 100 : 0;
+                        break;
+                    case 2: // float
+                        $value = ($currentValue === 0.0) ? 100 : 0;
+                        break;
+                    case 3: //string
+                        $value = ($currentValue === "true") ? "false" : "true";
+                        break;
+                }
+                break;
         }
         
-        RequestAction($id, $value);
+        if (($variable['VariableType'] === 2) || ($variable['VariableType'] === 3)) {
+            SetValue($id, $value);
+        } else {
+            RequestAction($id, $value);
+        }
     }
 }
 ?>
