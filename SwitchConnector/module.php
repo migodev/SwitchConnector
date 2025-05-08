@@ -142,7 +142,11 @@ class SwitchConnector extends IPSModule {
         if (($variable['VariableType'] === 2) || ($variable['VariableType'] === 3)) {
             SetValue($id, $value);
         } else {
-            RequestAction($id, $value);
+            if (HasAction($id)) {
+                RequestAction($id, $value);
+            } else {
+                SetValue($id, $value);
+            }
         }
     }
 }
