@@ -9,8 +9,9 @@ Damit kann mit bis zu 4 Kanälen einebeliebige Variable true/false geschaltet od
 3. [Software-Installation](#3-software-installation)
 4. [Einrichten der Instanzen in IP-Symcon](#4-einrichten-der-instanzen-in-ip-symcon)
 5. [Statusvariablen und Profile](#5-statusvariablen-und-profile)
-6. [Visualisierung](#6-visualisierung)
-7. [PHP-Befehlsreferenz](#7-php-befehlsreferenz)
+6. [Konfiguration](#6-konfiguration)
+7. [Visualisierung](#7-visualisierung)
+8. [PHP-Befehlsreferenz](#8-php-befehlsreferenz)
 
 
 ### 1. Funktionsumfang
@@ -36,10 +37,19 @@ Damit kann mit bis zu 4 Kanälen einebeliebige Variable true/false geschaltet od
 Es werden keine Profile angelegt.
 Es werden keine Statusvariablen angelegt
 
-### 6. Visualisierung
+### 6. Konfiguration
+
+| Eigenschaft                                           |   Typ   | Standardwert | Funktion                                                  |
+|:------------------------------------------------------|:-------:|:-------------|:----------------------------------------------------------|
+| Eingangsvariable                                      | integer | 0            | Die TasterVariable auf die reagiert werden soll, z.B. Status AO oder Gedrückt |
+| Eingangswert                                      	| integer | 0            | Auf welchen Wert soll reagiert werden, true, false oder beides. Nur wenn dieser Wert durch die Eingangsvariable ausgelöst wird, wird auf der Ausgangsvariable geschaltet. |
+| Ausgangsvariable                                      | integer | 0            | Die Variable die geschaltet werden soll, wenn die Eingangsvariable mit dem Eingangswert ausgelöst wird. |
+| Ausgangswert                                          | integer | 0            | Schaltet den ausgewählten Wert (true, false, Szene Aufrufen, Wert umschalten) <br /><br />Szene Aufrufen: Aus dem Szenenmodul muss in der Ausgangsvariable eine Szenenvariable gewählt werden.<br />Wert umschalten: wechselt bool mit true/false, integer & float mit 0,100, string mit "true"/"false" |
+
+### 7. Visualisierung
 
 Das Modul bietet keine Funktion in der Visualisierung.
 
-### 7. PHP-Befehlsreferenz
+### 8. PHP-Befehlsreferenz
 
 Keine
