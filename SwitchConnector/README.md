@@ -44,7 +44,7 @@ Es werden keine Statusvariablen angelegt
 | Eingangsvariable                                      | integer | 0            | Die TasterVariable auf die reagiert werden soll, z.B. Status AO oder Gedrückt |
 | Eingangswert                                      	| integer | 0            | Auf welchen Wert soll reagiert werden, true, false oder beides. Nur wenn dieser Wert durch die Eingangsvariable ausgelöst wird, wird auf der Ausgangsvariable geschaltet. |
 | Ausgangsvariable                                      | integer | 0            | Die Variable die geschaltet werden soll, wenn die Eingangsvariable mit dem Eingangswert ausgelöst wird. |
-| Ausgangswert                                          | integer | 0            | Schaltet den ausgewählten Wert (true, false, Szene Aufrufen, Wert umschalten) <br /><br />Szene Aufrufen: Aus dem Szenenmodul muss in der Ausgangsvariable eine Szenenvariable gewählt werden.<br />Wert umschalten: wechselt bool mit true/false, integer & float mit 0,100, string mit "true"/"false" |
+| Ausgangswert                                          | integer | 0            | Schaltet den ausgewählten Wert (true, false, Szene Aufrufen, Wert umschalten) <br /><br /><i>Szene Aufrufen:</i> Aus dem Szenenmodul muss in der Ausgangsvariable eine Szenenvariable gewählt werden.<br /><i>Wert umschalten:</i> wechselt bool mit true/false, integer & float mit 0/100, string mit "true"/"false" |
 
 ### 7. Visualisierung
 
