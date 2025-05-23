@@ -85,7 +85,9 @@ class SwitchConnector extends IPSModule {
         // Sort Childrens
         foreach(IPS_GetChildrenIDs($SwitchId) as $objectID) {
             $object = IPS_GetObject($objectID);
-            $objectList[$object["ObjectID"]] = $object["ObjectPosition"];
+            if ($object["ObjectType"] == 2) { //Only Variables
+                $objectList[$object["ObjectID"]] = $object["ObjectPosition"];
+            }
         } 
         asort($objectList);
 
