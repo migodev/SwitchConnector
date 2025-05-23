@@ -53,8 +53,7 @@ class SwitchConnector extends IPSModule {
         }
     }
     
-    public function GetConfigurationForm()
-    {
+    public function GetConfigurationForm() {
         $form = json_decode(file_get_contents(__DIR__ . '/form.json'), true);
         
         $connectorCount = $this->ReadPropertyInteger('ConnectorCount');
@@ -71,6 +70,37 @@ class SwitchConnector extends IPSModule {
         return json_encode($form);
     }
     
+    public function ImportMasterSwitch(int $SwitchId) {
+        if (!IPS_InstanceExists($SwitchId)) { return false; }
+        $validModules = array("{40C99CC9-EC04-49C8-BB9B-73E21B6FA265}"); //Enocean PTM200 
+
+        // Check if Instance is valid
+        $instance = IPS_GetInstance($SwitchId);
+        $modId = $instance['ModuleInfo']['ModuleID'];
+        if (!in_array($modId, $validModules)) {
+            echo $this->Translate('Instance not supported');
+            return false;
+        }
+        
+        // Sort Childrens
+        foreach(IPS_GetChildrenIDs($SwitchId) as $objectID) {
+            $object = IPS_GetObject($objectID);
+            $objectList[$object["ObjectID"]] = $object["ObjectPosition"];
+        } 
+        asort($objectList);
+
+        if (count($objectList) > 0) {
+            $i=1;
+            foreach ($objectList as $ch => $sort) {
+                // Import to Input Fields
+                $this->UpdateFormField('InputVariable_'.$i, 'value', $ch);
+                $i++;
+
+                if ($i > 4) { break; }
+            }
+        }
+    }
+
     private function switchVariable($Data, $SenderID) {        
         // $Data[0] Neuer Wert
         // $Data[1] true/false ob Änderung oder Aktualisierung.

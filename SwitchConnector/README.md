@@ -45,6 +45,8 @@ Es werden keine Statusvariablen angelegt
 | Eingangswert                                      	| integer | 0            | Auf welchen Wert soll reagiert werden, true, false oder beides. Nur wenn dieser Wert durch die Eingangsvariable ausgelöst wird, wird auf der Ausgangsvariable geschaltet. |
 | Ausgangsvariable                                      | integer | 0            | Die Variable die geschaltet werden soll, wenn die Eingangsvariable mit dem Eingangswert ausgelöst wird. |
 | Ausgangswert                                          | integer | 0            | Schaltet den ausgewählten Wert (true, false, Szene Aufrufen, Wert umschalten) <br /><br /><i>Szene Aufrufen:</i> Aus dem Szenenmodul muss in der Ausgangsvariable eine Szenenvariable gewählt werden.<br /><i>Wert umschalten:</i> wechselt bool mit true/false, integer & float mit 0/100, string mit "true"/"false" |
+| <em>Action-Center</em>                        |  		  |              |  														 |
+| Eltako PTM200 Instanz                                 | integer | 0            | Hier kann eine Eltako PTM200 Instanz gewählt werden, die bei Klick auf den Import Button die 4 Eingangsvariablen direkt mit den Tastervariablen belegt. |
 
 ### 7. Visualisierung
 

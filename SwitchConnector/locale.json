@@ -8,7 +8,10 @@
             "Output Value": "Ausgangswert",
             "true and false": "true & false",
             "Call Scene": "Szene aufrufen",
-            "Toggle Value": "Wert umschalten"
+            "Toggle Value": "Wert umschalten",
+            "MasterSwitch": "Eltako PTM200 Instanz",
+            "Instance not supported": "Dieser Instanz-Typ wird nicht unterstützt",
+            "Import": "Import"
         }
     }
 }

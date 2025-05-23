@@ -65,6 +65,13 @@
     "actions": [
         {
             "type": "TestCenter"
-        }
+        },
+		{
+		"type":  "RowLayout",
+		"items": [
+			{"type": "SelectInstance", "name": "MasterSwitch", "caption": "MasterSwitch", "width": "400px", "validModules": ["{40C99CC9-EC04-49C8-BB9B-73E21B6FA265}"]},
+			{"type": "Button", "caption": "Import", "onClick": "MSC_ImportMasterSwitch($id, $MasterSwitch);"}
+		]
+		}
     ]
 }
