@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-class SwitchConnector extends IPSModule {
+class SwitchConnector extends IPSModuleStrict {
     
-    public function Create() {
+    public function Create(): void {
         parent::Create();
         
         //Properties
@@ -20,7 +20,7 @@ class SwitchConnector extends IPSModule {
         
     }
     
-    public function ApplyChanges() {
+    public function ApplyChanges(): void {
         parent::ApplyChanges();
         
         //Unregister all messages
@@ -46,14 +46,14 @@ class SwitchConnector extends IPSModule {
         }
     }
     
-    public function MessageSink($TimeStamp, $SenderID, $Message, $Data) {
+    public function MessageSink(int $TimeStamp, int $SenderID, int $Message, array $Data): void {
         //https://www.symcon.de/en/service/documentation/developer-area/sdk-tools/sdk-php/messages/
         if ($Message == VM_UPDATE) {          
             $this->switchVariable($Data[0], $SenderID);
         }
     }
     
-    public function GetConfigurationForm() {
+    public function GetConfigurationForm(): string {
         $form = json_decode(file_get_contents(__DIR__ . '/form.json'), true);
         
         $connectorCount = $this->ReadPropertyInteger('ConnectorCount');
@@ -70,7 +70,7 @@ class SwitchConnector extends IPSModule {
         return json_encode($form);
     }
     
-    public function ImportMasterSwitch(int $SwitchId) {
+    public function ImportMasterSwitch(int $SwitchId): bool {
         if (!IPS_InstanceExists($SwitchId)) { return false; }
         $validModules = array("{40C99CC9-EC04-49C8-BB9B-73E21B6FA265}"); //Enocean PTM200 
 
@@ -101,9 +101,10 @@ class SwitchConnector extends IPSModule {
                 if ($i > 4) { break; }
             }
         }
+        return true;
     }
 
-    private function switchVariable($Data, $SenderID) {        
+    private function switchVariable(mixed $Data, int $SenderID): void {        
         // $Data[0] Neuer Wert
         // $Data[1] true/false ob Änderung oder Aktualisierung.
         // $Data[2] Alter Wert 
@@ -139,7 +140,7 @@ class SwitchConnector extends IPSModule {
     }
     
 
-    private function SetResult($id, $outputValue) {
+    private function SetResult(int $id, int $outputValue): void {
         $currentValue = GetValue($id);
         $variable = IPS_GetVariable($id);
         
